@@ -62,6 +62,10 @@ class LinksListItem extends Component {
 		);
 	}
 
+	deleteLink = () => {
+		Meteor.call('Links.delete', this.props._id);
+	}
+
 	render(){
 		return(
 			<div className="item">
@@ -77,6 +81,7 @@ class LinksListItem extends Component {
 				}}>
 					{this.props.visible ? "Hide" : "Unhide"}
 				</button>
+				<button className="button button--borders" onClick={this.deleteLink.bind(this)}>Remove</button>
 			</div>
 		);
 	}

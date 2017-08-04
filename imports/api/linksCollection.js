@@ -85,5 +85,17 @@ Meteor.methods({
 				visitedCount: 1
 			}
 		});
+	},
+	'Links.delete': function(_id) {
+		var deleteSchema = new SimpleSchema({
+			_id: {
+				type: String,
+				min: 1
+			}
+		});
+
+		deleteSchema.validate({_id: _id});
+
+		LinksCollection.remove({_id: _id});
 	}
 });
